@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react'
+import EchartStacked from './components/EchartStacked'
+import InputForm from './components/inputForm'
+import './App.css'
 
 function App() {
+  const [generate, setGenerate] = useState(false)
+  const [ipAddress, setIpAddress] = useState('')
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <InputForm
+        generate={generate}
+        setGenerate={setGenerate}
+        ipAddress={ipAddress}
+        setIpAddress={setIpAddress}
+      />
+      <EchartStacked
+        generate={generate}
+        setGenerate={setGenerate}
+        ipAddress={ipAddress}
+        setIpAddress={setIpAddress}
+      />
     </div>
   );
 }
 
-export default App;
+export default App
